@@ -10,14 +10,14 @@ SMTP_PORT = 465
 def render_html(meditation):
     sections_html = ""
     for section in meditation["sections"]:
-        paragraphs_html = "".join(f'<p style="margin:0 0 14px;line-height:1.6;">{p}</p>' for p in section["paragraphs"])
-        title_html = f'<h2 style="font-size:18px;margin:28px 0 10px;color:#2e2e2e;">{section["title"]}</h2>' if section["title"] else ""
+        paragraphs_html = "".join(f'<p style="margin:0 0 22px;font-size:18px;line-height:1.8;">{p}</p>' for p in section["paragraphs"])
+        title_html = f'<h2 style="font-size:19px;margin:36px 0 16px;padding-top:28px;border-top:1px solid #e5e0d3;color:#2e2e2e;">{section["title"]}</h2>' if section["title"] else ""
         sections_html += title_html + paragraphs_html
 
     footnotes_html = ""
     if meditation["footnotes"]:
-        items = "".join(f'<li style="margin-bottom:4px;">{f}</li>' for f in meditation["footnotes"])
-        footnotes_html = f'<hr style="border:none;border-top:1px solid #ddd;margin:24px 0;"><ol style="font-size:12px;color:#666;padding-left:18px;">{items}</ol>'
+        items = "".join(f'<li style="margin-bottom:8px;">{f}</li>' for f in meditation["footnotes"])
+        footnotes_html = f'<hr style="border:none;border-top:1px solid #ddd;margin:32px 0 20px;"><ol style="font-size:13px;line-height:1.6;color:#666;padding-left:18px;">{items}</ol>'
 
     image_html = f'<img src="{meditation["image_url"]}" alt="" style="width:100%;max-width:600px;border-radius:8px;margin-bottom:20px;">' if meditation["image_url"] else ""
 
@@ -27,8 +27,8 @@ def render_html(meditation):
   <div style="max-width:600px;margin:0 auto;background:#fff;padding:30px;border-radius:10px;">
     {image_html}
     <p style="color:#ef9f13;font-weight:bold;letter-spacing:1px;text-transform:uppercase;font-size:12px;">{meditation["date_display"]}</p>
-    <h1 style="font-size:24px;margin:6px 0 16px;">{meditation["title"]}</h1>
-    <p style="font-style:italic;color:#555;margin-bottom:24px;">{meditation["description"]}</p>
+    <h1 style="font-size:25px;line-height:1.3;margin:6px 0 18px;">{meditation["title"]}</h1>
+    <p style="font-style:italic;color:#555;font-size:17px;line-height:1.6;margin-bottom:28px;">{meditation["description"]}</p>
     {sections_html}
     {footnotes_html}
     <p style="margin-top:30px;font-size:12px;color:#999;">
