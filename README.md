@@ -1,4 +1,4 @@
-# opus-dei-meditations
+# daily-meditation-mailer
 
 Pega a meditação diária publicada em [opusdei.org/pt-br/meditation](https://opusdei.org/pt-br/meditation/) e manda por email, formatada em HTML.
 
