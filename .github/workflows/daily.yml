@@ -1,16 +1,17 @@
 name: Send daily meditation
 
+# Sem `schedule:` de propósito. O cron do GitHub Actions é best-effort e estava
+# atrasando horas; quem dispara é um job externo (cron-job.org) chamando a API de
+# workflow_dispatch às 06:00 America/Sao_Paulo. Veja o README.
 on:
-  schedule:
-    - cron: "0 9 * * *" # 09:00 UTC = 06:00 America/Sao_Paulo
   workflow_dispatch: {}
 
 jobs:
   send:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt
