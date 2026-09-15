@@ -30,6 +30,12 @@ Em Settings → Secrets and variables → Actions do repo, cria estes secrets:
 
 Pra disparar na mão: aba Actions → Send daily meditation → Run workflow.
 
+## Quando a página muda de formato
+
+O HTML do opusdei.org não é estável, e um dia o scraper quebrou inteiro porque o sumário do artigo não veio. Agora ele vai cedendo por partes: descrição, data, imagem, títulos de seção e notas de rodapé são todos opcionais, e o que faltar simplesmente não aparece no email.
+
+Só título e o corpo do texto são obrigatórios. Se algum dos dois sumir, em vez de não receber nada você recebe um email curto dizendo o que faltou, com o link pra ler no site, e a run fica vermelha no Actions.
+
 ## Por que o agendamento é externo
 
 O `daily.yml` não tem `schedule:`. Tinha, e não funcionava. O cron do GitHub Actions em repo gratuito é best-effort e cai numa fila de baixa prioridade: as runs de 12, 13 e 14/09/2026 estavam marcadas pras 09:00 UTC e rodaram 12:29, 13:30 e 15:23. O atraso só piorava.
